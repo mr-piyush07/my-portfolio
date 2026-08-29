@@ -1,0 +1,114 @@
+/* ==========================================================================
+   Piyush Kushwah Portfolio Stylesheet
+   ========================================================================== */
+
+/* Lenis Smooth Scroll Setup */
+html.lenis {
+    height: auto;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+/* Base Body Styling */
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #050214;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+section {
+    scroll-margin-top: 100px;
+}
+
+/* Glowing Background Aurora */
+.aurora {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(123, 49, 255, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+/* Glass Cards with Radial Mouse Glow */
+.glass-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.glass-card:hover {
+    border-color: rgba(123, 49, 255, 0.5);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -15px rgba(123, 49, 255, 0.15);
+}
+
+.card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(350px circle at var(--x, 50%) var(--y, 50%), rgba(123, 49, 255, 0.25), transparent 80%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.glass-card:hover .card-glow {
+    opacity: 1;
+}
+
+/* Sliding Scroll Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Button & Nav Links */
+.btn-purple {
+    background: #7B31FF;
+    transition: all 0.3s ease;
+}
+
+.btn-purple:hover {
+    box-shadow: 0 0 35px rgba(123, 49, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: #7B31FF;
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}

@@ -3,517 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piyush Kushwah | Full-Stack & IoT Developer</title>
+    <title>Piyush Kushwah | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script> 
-    
-    <style>
-        html.lenis { height: auto; }
-        .lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-        .lenis-smooth { scroll-behavior: auto !important; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050214; color: #ffffff; overflow-x: hidden; }
-        section { scroll-margin-top: 100px; }
-        
-        .aurora { position: fixed; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123, 49, 255, 0.1) 0%, rgba(0,0,0,0) 70%); border-radius: 50%; z-index: -1; filter: blur(80px); }
-        
-        /* Glass Cards with Glow */
-        .glass-card { position: relative; background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 28px; transition: all 0.4s ease; overflow: hidden; }
-        .glass-card:hover { border-color: rgba(123, 49, 255, 0.5); transform: translateY(-10px); }
-        .card-glow { position: absolute; inset: 0; background: radial-gradient(350px circle at var(--x) var(--y), rgba(123, 49, 255, 0.25), transparent 80%); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
-        .glass-card:hover .card-glow { opacity: 1; }
-        
-        /* NEW: Sliding Reveal Animation Classes */
-        .reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .btn-purple { background: #7B31FF; transition: all 0.3s ease; }
-        .btn-purple:hover { box-shadow: 0 0 35px rgba(123, 49, 255, 0.5); transform: translateY(-2px); }
-        .nav-link { position: relative; transition: color 0.3s; }
-        .nav-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -4px; left: 0; background-color: #7B31FF; transition: width 0.3s; }
-        .nav-link:hover::after { width: 100%; }
-    </style>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="aurora" style="top: -10%; left: -10%;"></div>
-    
-<nav class="fixed top-0 w-full z-50 bg-[#050214]/80 backdrop-blur-xl border-b border-white/5">
-    <div class="flex justify-between items-center px-8 md:px-16 py-5 max-w-7xl mx-auto">
-        
-<div class="group cursor-pointer flex items-center gap-2">
-    <div id="nav-photo-target" class="w-8 h-8 rounded-lg overflow-hidden bg-purple-600 flex items-center justify-center opacity-0 scale-50 transition-all">
-        <img src="your-photo.jpg" class="w-full h-full object-cover" alt="P">
-    </div>
-    <div id="nav-name" class="text-xl font-extrabold tracking-tighter">
-        PIYUSH<span class="text-[#7B31FF]">.</span>
-    </div>
-</div>
-        
-        <div class="hidden md:flex items-center space-x-8 text-[10px] font-bold tracking-[0.15em] uppercase opacity-80">
-            <a href="#home" class="nav-link flex items-center gap-2 hover:text-purple-400 transition-all group">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-purple-500 group-hover:scale-110 transition-transform"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                Home
-            </a>
 
-            <a href="#about" class="nav-link flex items-center gap-2 hover:text-purple-400 transition-all group">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-purple-500 group-hover:scale-110 transition-transform"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                About
+    <!-- Nav Bar -->
+    <nav class="fixed top-0 w-full z-50 bg-[#050214]/80 backdrop-blur-xl border-b border-white/5">
+        <div class="flex justify-between items-center px-6 md:px-12 py-4 max-w-7xl mx-auto">
+            <a href="#home" class="flex items-center gap-3 font-extrabold text-xl tracking-tighter">
+                <img src="piyushphoto.jpg" class="w-8 h-8 rounded-lg object-cover border border-purple-500/40" alt="PK">
+                PIYUSH<span class="text-[#7B31FF]">.</span>
             </a>
-
-            <a href="#skills" class="nav-link flex items-center gap-2 hover:text-purple-400 transition-all group">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-purple-500 group-hover:scale-110 transition-transform"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                Skills
-            </a>
-
-            <a href="#projects" class="nav-link flex items-center gap-2 hover:text-purple-400 transition-all group">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-purple-500 group-hover:scale-110 transition-transform"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
-                Portfolio
-            </a>
-
-            <a href="#contact" class="nav-link flex items-center gap-2 hover:text-purple-400 transition-all group">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-purple-500 group-hover:scale-110 transition-transform"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                Contact
-            </a>
+            <div class="hidden md:flex items-center space-x-6 text-[11px] font-bold uppercase tracking-widest text-zinc-400">
+                <a href="#home" class="hover:text-white transition-colors">Home</a>
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#education" class="hover:text-white transition-colors">Education</a>
+                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#achievements" class="hover:text-white transition-colors">Achievements</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <a href="mailto:piyushkushwah048@gmail.com" class="btn-purple text-xs font-bold uppercase tracking-widest px-5 py-2.5 rounded-full">Let's Talk</a>
         </div>
+    </nav>
 
-        <div class="flex items-center gap-4">
-            <a href="mailto:piyushkushwah048@gmail.com" class="hidden lg:flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest bg-white text-black px-6 py-3 rounded-full hover:bg-purple-600 hover:text-white transition-all shadow-lg shadow-white/5">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-                Let's Talk
-            </a>
-        </div>
-    </div>
-</nav>
-    <section id="home" class="pt-48 pb-20 text-center px-6 reveal active">
-        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-[#7B31FF]/30 p-2 mb-12 shadow-[0_0_80px_rgba(123,49,255,0.2)] mx-auto overflow-hidden">
+    <!-- Hero -->
+    <section id="home" class="pt-40 pb-16 text-center px-6 reveal active">
+        <div class="w-48 h-48 md:w-56 md:h-56 rounded-full border-4 border-[#7B31FF]/30 p-2 mb-8 mx-auto overflow-hidden shadow-[0_0_60px_rgba(123,49,255,0.2)]">
             <img src="piyushphoto.jpg" alt="Piyush Kushwah" class="w-full h-full object-cover rounded-full">
         </div>
-        <h1 class="text-6xl md:text-8xl font-extrabold mb-6 tracking-tighter">Piyush <span class="text-purple-500">Kushwah</span></h1>
-        <p class="text-zinc-400 max-w-2xl mx-auto text-lg mb-10">Undergraduate student at DEI, building intelligent Python applications and IoT systems.</p>
-        <a href="#projects" class="btn-purple px-10 py-4 rounded-full font-bold uppercase tracking-widest text-xs">Explore My Work</a>
-    </section>
-<section id="about" class="py-32 px-6 max-w-7xl mx-auto scroll-mt-24">
-    <div class="mb-16 reveal">
-        <h2 class="text-[10px] font-bold uppercase tracking-[0.4em] text-purple-500 mb-4">Professional Profile</h2>
-        <div class="h-[1px] w-12 bg-purple-500"></div>
-    </div>
-
-    <div class="grid lg:grid-cols-12 gap-12 lg:gap-24 items-start">
-        
-        <div class="lg:col-span-4 space-y-8 reveal">
-            <div class="glass-card p-8 border-l-4 border-l-purple-600">
-                <div class="space-y-6">
-                    <div>
-                        <h3 class="text-3xl font-black tracking-tighter text-white mb-2">Piyush Kushwah</h3>
-                        <p class="text-purple-400 font-medium text-sm">IoT & Full-Stack Developer</p>
-                    </div>
-                    
-                    <div class="pt-6 border-t border-white/5 space-y-4">
-                        <div class="flex items-start gap-4">
-                            <div class="mt-1 bg-purple-500/10 p-2 rounded-lg">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-purple-500"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-                            </div>
-                            <div>
-                                <p class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Education</p>
-                                <p class="text-sm text-zinc-300 leading-snug">B.Voc in Internet of Things</p>
-                                <p class="text-[11px] text-purple-400">Dayalbagh Educational Institute</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="mt-1 bg-purple-500/10 p-2 rounded-lg">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-purple-500"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                            </div>
-                            <div>
-                                <p class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Location</p>
-                                <p class="text-sm text-zinc-300">Agra, Uttar Pradesh, India</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex flex-wrap gap-2">
-                <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-md text-[9px] font-bold text-zinc-400 uppercase tracking-widest">Embedded Systems</span>
-                <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-md text-[9px] font-bold text-zinc-400 uppercase tracking-widest">AI Logic</span>
-                <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-md text-[9px] font-bold text-zinc-400 uppercase tracking-widest">System Architecture</span>
-            </div>
-        </div>
-
-        <div class="lg:col-span-8 space-y-12 reveal">
-            <div class="space-y-6">
-                <p class="text-2xl md:text-3xl font-light leading-snug text-zinc-200">
-                    I focus on the intersection of <span class="text-white font-semibold">connected hardware</span> and <span class="text-white font-semibold">modern software ecosystems</span> to solve real-world complexities.
-                </p>
-                <div class="prose prose-invert max-w-none">
-                    <p class="text-zinc-400 leading-relaxed">
-                        As an undergraduate at DEI, my work revolves around the practical application of <strong>Internet of Things (IoT)</strong>. I bridges the gap between raw sensor data and meaningful digital interfaces, ensuring that every project is not just a prototype, but a scalable solution. 
-                    </p>
-                    <p class="text-zinc-400 leading-relaxed">
-                        My approach is built on disciplined experimentation. Whether it's designing embedded logic or developing AI-assisted software, my goal is to create end-to-end digital solutions that are efficient, practical, and technologically robust.
-                    </p>
-                </div>
-            </div>
-
-            <div class="grid sm:grid-cols-2 gap-6">
-                <div class="p-6 rounded-2xl bg-white/2 border border-white/5 hover:border-purple-500/30 transition-colors">
-                    <div class="w-10 h-10 mb-4 bg-purple-600/20 rounded-lg flex items-center justify-center text-purple-400 italic font-black">01</div>
-                    <h4 class="text-white font-bold mb-2">Full-Stack Capability</h4>
-                    <p class="text-xs text-zinc-500 leading-relaxed">Developing seamless integration between hardware protocols and modern web frameworks.</p>
-                </div>
-                <div class="p-6 rounded-2xl bg-white/2 border border-white/5 hover:border-purple-500/30 transition-colors">
-                    <div class="w-10 h-10 mb-4 bg-purple-600/20 rounded-lg flex items-center justify-center text-purple-400 italic font-black">02</div>
-                    <h4 class="text-white font-bold mb-2">AI-Driven Systems</h4>
-                    <p class="text-xs text-zinc-500 leading-relaxed">Leveraging artificial intelligence to optimize software logic and predictive maintenance in IoT.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="skills" class="py-32 px-6 max-w-7xl mx-auto scroll-mt-24">
-    <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-6 reveal">
-        <div class="space-y-4">
-            <h2 class="text-[10px] font-bold uppercase tracking-[0.4em] text-purple-500">Technical & Creative Stack</h2>
-            <h3 class="text-5xl md:text-6xl font-extrabold tracking-tighter italic">Core <span class="text-zinc-600">Expertise.</span></h3>
-        </div>
-        <div class="hidden md:block h-[1px] flex-grow mx-12 bg-white/5"></div>
-        <p class="text-zinc-500 text-[10px] font-bold uppercase tracking-widest max-w-[200px] text-right">
-            Bridging the gap between hardware, software & design.
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-4 tracking-tighter">Piyush <span class="text-purple-500">Kushwah</span></h1>
+        <p class="text-zinc-400 max-w-2xl mx-auto text-base md:text-lg mb-8">
+            B.Voc (IoT) Student at DEI | IoT Systems, Software Development, Network Admin & Modern Web
         </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <div class="glass-card p-10 group reveal">
-            <div class="flex items-center gap-5 mb-10">
-                <div class="w-14 h-14 bg-purple-600/10 rounded-2xl flex items-center justify-center text-purple-500 group-hover:bg-purple-600 group-hover:text-white transition-all duration-500 shadow-lg shadow-purple-900/10">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="10" x="2" y="10" rx="2"/><path d="M12 10V6"/><path d="M15 6H9"/><path d="M22 15h-2"/></svg>
-                </div>
-                <div>
-                    <h4 class="font-bold text-xl">IoT Systems</h4>
-                    <p class="text-[9px] text-zinc-500 uppercase tracking-widest mt-1">Hardware & Sensors</p>
-                </div>
-            </div>
-            <div class="space-y-8">
-                <div class="space-y-3">
-                    <div class="flex justify-between text-[10px] uppercase tracking-[0.2em] font-bold">
-                        <span class="text-zinc-400">Embedded Logic</span>
-                        <span class="text-purple-500">85%</span>
-                    </div>
-                    <div class="h-[2px] w-full bg-white/5 rounded-full"><div class="h-full bg-purple-600 w-[85%]"></div></div>
-                </div>
-                <div class="space-y-3">
-                    <div class="flex justify-between text-[10px] uppercase tracking-[0.2em] font-bold">
-                        <span class="text-zinc-400">Circuit Prototyping</span>
-                        <span class="text-purple-500">90%</span>
-                    </div>
-                    <div class="h-[2px] w-full bg-white/5 rounded-full"><div class="h-full bg-purple-600 w-[90%]"></div></div>
-                </div>
-            </div>
+        <div class="flex justify-center gap-4">
+            <a href="#projects" class="btn-purple px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs">View Projects</a>
+            <a href="#contact" class="bg-white/5 border border-white/10 hover:bg-white/10 px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs transition-all">Contact</a>
         </div>
+    </section>
 
-        <div class="glass-card p-10 group reveal">
-            <div class="flex items-center gap-5 mb-10">
-                <div class="w-14 h-14 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition-all duration-500 shadow-lg shadow-blue-900/10">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                </div>
-                <div>
-                    <h4 class="font-bold text-xl">Development</h4>
-                    <p class="text-[9px] text-zinc-500 uppercase tracking-widest mt-1">Python & Frontend</p>
-                </div>
-            </div>
-            <div class="space-y-8">
-                <div class="space-y-3">
-                    <div class="flex justify-between text-[10px] uppercase tracking-[0.2em] font-bold">
-                        <span class="text-zinc-400">Python (Data/AI)</span>
-                        <span class="text-blue-500">80%</span>
-                    </div>
-                    <div class="h-[2px] w-full bg-white/5 rounded-full"><div class="h-full bg-blue-600 w-[80%]"></div></div>
-                </div>
-                <div class="space-y-3">
-                    <div class="flex justify-between text-[10px] uppercase tracking-[0.2em] font-bold">
-                        <span class="text-zinc-400">Modern Web (Tailwind)</span>
-                        <span class="text-blue-500">75%</span>
-                    </div>
-                    <div class="h-[2px] w-full bg-white/5 rounded-full"><div class="h-full bg-blue-600 w-[75%]"></div></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="glass-card p-10 group reveal">
-            <div class="flex items-center gap-5 mb-10">
-                <div class="w-14 h-14 bg-pink-600/10 rounded-2xl flex items-center justify-center text-pink-500 group-hover:bg-pink-600 group-hover:text-white transition-all duration-500 shadow-lg shadow-pink-900/10">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                </div>
-                <div>
-                    <h4 class="font-bold text-xl">Visual Arts</h4>
-                    <p class="text-[9px] text-zinc-500 uppercase tracking-widest mt-1">Vector & Technical Design</p>
-                </div>
-            </div>
-            <div class="space-y-8">
-                <div class="space-y-3">
-                    <div class="flex justify-between text-[10px] uppercase tracking-[0.2em] font-bold">
-                        <span class="text-zinc-400">SVG / Vector Graphics</span>
-                        <span class="text-pink-500">95%</span>
-                    </div>
-                    <div class="h-[2px] w-full bg-white/5 rounded-full"><div class="h-full bg-pink-600 w-[95%]"></div></div>
-                </div>
-                <div class="space-y-3">
-                    <div class="flex justify-between text-[10px] uppercase tracking-[0.2em] font-bold">
-                        <span class="text-zinc-400">3D Component Modeling</span>
-                        <span class="text-pink-500">85%</span>
-                    </div>
-                    <div class="h-[2px] w-full bg-white/5 rounded-full"><div class="h-full bg-pink-600 w-[85%]"></div></div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="mt-8 grid lg:grid-cols-2 gap-8">
-        <div class="glass-card p-10 reveal">
-            <div class="flex items-center gap-4 mb-8">
-                <div class="w-10 h-10 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-500 font-black italic text-sm">#</div>
-                <h4 class="font-bold uppercase tracking-widest text-sm text-zinc-300">Professional Qualities</h4>
-            </div>
-            <div class="flex flex-wrap gap-2">
-                <span class="px-4 py-2 bg-white/2 border border-white/5 rounded-lg text-[10px] font-bold text-zinc-400 uppercase tracking-widest hover:border-amber-500/50 hover:text-white transition-all cursor-default">Critical Problem Solving</span>
-                <span class="px-4 py-2 bg-white/2 border border-white/5 rounded-lg text-[10px] font-bold text-zinc-400 uppercase tracking-widest hover:border-amber-500/50 hover:text-white transition-all cursor-default">Technical Writing</span>
-                <span class="px-4 py-2 bg-white/2 border border-white/5 rounded-lg text-[10px] font-bold text-zinc-400 uppercase tracking-widest hover:border-amber-500/50 hover:text-white transition-all cursor-default">Disciplined Experimentation</span>
-                <span class="px-4 py-2 bg-white/2 border border-white/5 rounded-lg text-[10px] font-bold text-zinc-400 uppercase tracking-widest hover:border-amber-500/50 hover:text-white transition-all cursor-default">Team Collaboration</span>
-            </div>
-        </div>
-        <div class="glass-card p-10 flex items-center bg-purple-600/5 border-purple-500/10 reveal">
-            <p class="text-zinc-400 leading-relaxed italic text-sm border-l-2 border-purple-600 pl-6">
-                "As a Graphics Designer and IoT Developer, I focus on the synergy between aesthetic clarity and functional precision. My goal is to build systems that don't just work, but are visually intuitive."
+    <!-- About / Objective -->
+    <section id="about" class="py-20 px-6 max-w-5xl mx-auto scroll-mt-24">
+        <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-purple-500 mb-2">About Me</h2>
+        <h3 class="text-3xl md:text-4xl font-extrabold mb-6">Career Objective</h3>
+        <div class="glass-card p-8">
+            <p class="text-zinc-300 leading-relaxed text-sm md:text-base mb-6">
+                A proactive undergraduate student in <strong>B.Voc (IoT)</strong> at Dayalbagh Educational Institute. Dedicated to investigating and applying knowledge in IoT systems, software development, network administration, and modern web technologies. Focused on continuous improvement in embedded systems, network communications, and full-stack development to create scalable, real-world solutions.
             </p>
-        </div>
-    </div>
-</section>
-    <section id="projects" class="py-32 px-6 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-extrabold mb-16 text-center reveal">Project <span class="text-zinc-600">Showcase</span></h2>
-        
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="glass-card p-8 group reveal">
-                <div class="card-glow"></div>
-                <div class="text-4xl mb-6">🌤️</div>
-                <span class="text-[10px] text-purple-500 font-bold uppercase tracking-widest">Weather App (Using API)</span>
-                <h3 class="text-xl font-bold mt-4 mb-2">Weather Tracker</h3>
-                <p class="text-zinc-500 text-sm">Real-time weather analytics and trend tracking.</p>
-            </div>
-
-            <div class="glass-card p-8 group reveal">
-                <div class="card-glow"></div>
-                <div class="text-4xl mb-6">📊</div>
-                <span class="text-[10px] text-purple-500 font-bold uppercase tracking-widest">Sales Data Analyzer</span>
-                <h3 class="text-xl font-bold mt-4 mb-2">Sales Insights</h3>
-                <p class="text-zinc-500 text-sm">Python-driven analysis for business sales performance.</p>
-            </div>
-
-            <div class="glass-card p-8 group reveal">
-                <div class="card-glow"></div>
-                <div class="text-4xl mb-6">🎓</div>
-                <span class="text-[10px] text-purple-500 font-bold uppercase tracking-widest">Student Progress</span>
-                <h3 class="text-xl font-bold mt-4 mb-2">Performance Analyzer</h3>
-                <p class="text-zinc-500 text-sm">Analyzing marks and learning patterns for students.</p>
-            </div>
-
-            <div class="glass-card p-8 group reveal">
-                <div class="card-glow"></div>
-                <div class="text-4xl mb-6">📦</div>
-                <span class="text-[10px] text-purple-500 font-bold uppercase tracking-widest">Inventory Level Tracker</span>
-                <h3 class="text-xl font-bold mt-4 mb-2">Numpy Tracker</h3>
-                <p class="text-zinc-500 text-sm">High-performance stock tracking using NumPy.</p>
-            </div>
-
-            <div class="glass-card p-8 group reveal">
-                <div class="card-glow"></div>
-                <div class="text-4xl mb-6">📝</div>
-                <span class="text-[10px] text-purple-500 font-bold uppercase tracking-widest">to_do_list</span>
-                <h3 class="text-xl font-bold mt-4 mb-2">Smart Task List</h3>
-                <p class="text-zinc-500 text-sm">Productivity tool for managing academic deadlines.</p>
-            </div>
-
-            <div class="glass-card p-8 group reveal">
-                <div class="card-glow"></div>
-                <div class="text-4xl mb-6">🔌</div>
-                <span class="text-[10px] text-purple-500 font-bold uppercase tracking-widest">IoT / Circuits</span>
-                <h3 class="text-xl font-bold mt-4 mb-2">IoT Hub</h3>
-                <p class="text-zinc-500 text-sm">Interactive dashboard for monitoring hardware sensors.</p>
+            <div class="grid sm:grid-cols-3 gap-4 pt-6 border-t border-white/10 text-xs text-zinc-400">
+                <div><span class="font-bold text-white block">Location</span> Agra, Uttar Pradesh</div>
+                <div><span class="font-bold text-white block">Phone</span> +91 7302964055</div>
+                <div><span class="font-bold text-white block">Email</span> piyushkushwah048@gmail.com</div>
             </div>
         </div>
     </section>
-<section id="contact" class="py-32 px-6 max-w-7xl mx-auto scroll-mt-24">
-    <div class="text-center mb-16 reveal">
-        <h2 class="text-5xl md:text-7xl font-extrabold tracking-tighter italic">Get In <span class="text-purple-500">Touch.</span></h2>
-        <p class="text-zinc-500 mt-4 uppercase tracking-[0.3em] text-[10px] font-bold">Have a project in mind? Let's build it together.</p>
-    </div>
 
-    <div class="grid md:grid-cols-2 gap-12 items-start">
-        <div class="reveal">
-            <div class="glass-card p-10 h-full flex flex-col justify-between">
-                <div>
-                    <h3 class="text-2xl font-bold mb-6">Contact Details</h3>
-                    <div class="space-y-8">
-                        <div class="flex items-center gap-6 group">
-                            <div class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-purple-600 transition-all duration-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400 group-hover:text-white"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                            </div>
-                            <div>
-                                <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">Email Me</p>
-                                <a href="mailto:piyushkushwah048@gmail.com" class="text-lg font-semibold hover:text-purple-400 transition-colors">piyushkushwah048@gmail.com</a>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center gap-6 group">
-                            <div class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center group-hover:bg-[#25D366] transition-all duration-500">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400 group-hover:text-white"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            </div>
-                            <div>
-                                <p class="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">WhatsApp</p>
-                                <a href="https://wa.me/917302964055" target="_blank" class="text-lg font-semibold hover:text-[#25D366] transition-colors">+91-7302964055</a>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Education -->
+    <section id="education" class="py-20 px-6 max-w-5xl mx-auto scroll-mt-24">
+        <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-purple-500 mb-2">Qualifications</h2>
+        <h3 class="text-3xl md:text-4xl font-extrabold mb-10">Education</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="glass-card p-6">
+                <span class="text-[10px] text-purple-400 font-bold uppercase tracking-widest">2024 - 2027</span>
+                <h4 class="text-lg font-bold text-white mt-2">B.Voc (IoT)</h4>
+                <p class="text-xs text-purple-300 font-semibold mb-2">Dayalbagh Educational Institute</p>
+                <p class="text-xs text-zinc-400">Deemed to be University – Currently Pursuing</p>
+            </div>
+            <div class="glass-card p-6">
+                <span class="text-[10px] text-purple-400 font-bold uppercase tracking-widest">2024</span>
+                <h4 class="text-lg font-bold text-white mt-2">12th (PCM) - 78%</h4>
+                <p class="text-xs text-purple-300 font-semibold mb-2">St. Pauls Inter College</p>
+                <p class="text-xs text-zinc-400">Higher Secondary Education (UP Board)</p>
+            </div>
+            <div class="glass-card p-6">
+                <span class="text-[10px] text-purple-400 font-bold uppercase tracking-widest">2022</span>
+                <h4 class="text-lg font-bold text-white mt-2">10th - 79%</h4>
+                <p class="text-xs text-purple-300 font-semibold mb-2">St. Pauls Inter College</p>
+                <p class="text-xs text-zinc-400">Secondary Education (UP Board)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section id="skills" class="py-20 px-6 max-w-5xl mx-auto scroll-mt-24">
+        <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-purple-500 mb-2">Expertise</h2>
+        <h3 class="text-3xl md:text-4xl font-extrabold mb-10">Technical Skills</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="glass-card p-6">
+                <h4 class="font-bold text-lg text-white mb-4">Programming</h4>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="bg-purple-600/20 text-purple-300 px-3 py-1 rounded.md">HTML</span>
+                    <span class="bg-purple-600/20 text-purple-300 px-3 py-1 rounded.md">CSS</span>
+                    <span class="bg-purple-600/20 text-purple-300 px-3 py-1 rounded.md">Python</span>
+                    <span class="bg-purple-600/20 text-purple-300 px-3 py-1 rounded.md">JavaScript</span>
+                    <span class="bg-purple-600/20 text-purple-300 px-3 py-1 rounded.md">SQL (Basic)</span>
                 </div>
-
-                <div class="mt-16 flex gap-4">
-                    <a href="https://github.com/mr-piyush07" target="_blank" class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-all">
-                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
-                    <a href="https://linkedin.com/in/piyush-kushwah-369a87322" target="_blank" class="w-10 h-10 border border-white/10 rounded-full flex items-center justify-center hover:bg-[#0077B5] hover:text-white transition-all">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
+            </div>
+            <div class="glass-card p-6">
+                <h4 class="font-bold text-lg text-white mb-4">Hardware</h4>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="bg-blue-600/20 text-blue-300 px-3 py-1 rounded.md">Arduino</span>
+                    <span class="bg-blue-600/20 text-blue-300 px-3 py-1 rounded.md">ESP32</span>
+                    <span class="bg-blue-600/20 text-blue-300 px-3 py-1 rounded.md">Embedded Systems</span>
+                </div>
+            </div>
+            <div class="glass-card p-6">
+                <h4 class="font-bold text-lg text-white mb-4">Tools & Platforms</h4>
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <span class="bg-pink-600/20 text-pink-300 px-3 py-1 rounded.md">Git & GitHub</span>
+                    <span class="bg-pink-600/20 text-pink-300 px-3 py-1 rounded.md">Packet Tracer</span>
+                    <span class="bg-pink-600/20 text-pink-300 px-3 py-1 rounded.md">VirtualBox</span>
+                    <span class="bg-pink-600/20 text-pink-300 px-3 py-1 rounded.md">AI Tools</span>
+                    <span class="bg-pink-600/20 text-pink-300 px-3 py-1 rounded.md">MS Office</span>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="reveal">
-            <div class="glass-card p-10">
-                <form action="https://formspree.io/f/mdawdvvg" method="POST" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Your Name</label>
-                            <input type="text" name="name" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-purple-500 transition-all text-sm" placeholder="Piyush...">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Email Address</label>
-                            <input type="email" name="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-purple-500 transition-all text-sm" placeholder="hello@example.com">
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <label class="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Subject</label>
-                        <input type="text" name="subject" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-purple-500 transition-all text-sm" placeholder="Project Discussion">
-                    </div>
-                    <div class="space-y-2">
-                        <label class="text-[10px] font-bold uppercase tracking-widest text-zinc-400">Message</label>
-                        <textarea name="message" rows="5" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-purple-500 transition-all text-sm resize-none" placeholder="Tell me about your project..."></textarea>
-                    </div>
-                    <button type="submit" class="w-full btn-purple py-4 rounded-xl font-bold text-xs uppercase tracking-[0.2em]">Send Message</button>
+    <!-- Projects -->
+    <section id="projects" class="py-20 px-6 max-w-5xl mx-auto scroll-mt-24">
+        <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-purple-500 mb-2">Showcase</h2>
+        <h3 class="text-3xl md:text-4xl font-extrabold mb-10">Projects</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="glass-card p-6">
+                <span class="text-[10px] text-purple-400 font-bold uppercase">IoT System</span>
+                <h4 class="text-lg font-bold text-white mt-1 mb-2">Log Dashboard for Smart Plant Monitoring System</h4>
+                <p class="text-xs text-zinc-400 leading-relaxed">IoT-based plant monitoring system with live dashboard tracking plant health remotely via sensors & microcontrollers.</p>
+            </div>
+            <div class="glass-card p-6">
+                <span class="text-[10px] text-purple-400 font-bold uppercase">Web Development</span>
+                <h4 class="text-lg font-bold text-white mt-1 mb-2">Personal Portfolio Website</h4>
+                <p class="text-xs text-zinc-400 leading-relaxed mb-3">Responsive static portfolio website showcasing technical skills and projects.</p>
+                <div class="flex gap-4 text-xs">
+                    <a href="https://piyush-kushwah-portfolio.netlify.app" target="_blank" class="text-purple-400 hover:underline">Live Demo</a>
+                    <a href="https://github.com/mr-piyush07/my-portfolio" target="_blank" class="text-zinc-400 hover:text-white">GitHub Repo</a>
+                </div>
+            </div>
+            <div class="glass-card p-6">
+                <span class="text-[10px] text-purple-400 font-bold uppercase">Networking</span>
+                <h4 class="text-lg font-bold text-white mt-1 mb-2">Static Routing Network Simulation</h4>
+                <p class="text-xs text-zinc-400 leading-relaxed">Cisco Packet Tracer simulation for static routing across multi-router topology.</p>
+            </div>
+            <div class="glass-card p-6">
+                <span class="text-[10px] text-purple-400 font-bold uppercase">Networking</span>
+                <h4 class="text-lg font-bold text-white mt-1 mb-2">Dynamic Routing Simulation (RIP/OSPF)</h4>
+                <p class="text-xs text-zinc-400 leading-relaxed">Dynamic routing simulation using RIP and OSPF protocols on Cisco Packet Tracer.</p>
+            </div>
+            <div class="glass-card p-6">
+                <span class="text-[10px] text-purple-400 font-bold uppercase">Networking</span>
+                <h4 class="text-lg font-bold text-white mt-1 mb-2">Inter VLAN Routing Project</h4>
+                <p class="text-xs text-zinc-400 leading-relaxed">Implemented Inter-VLAN routing for network segmentation and traffic management.</p>
+            </div>
+            <div class="glass-card p-6">
+                <span class="text-[10px] text-purple-400 font-bold uppercase">Virtualization</span>
+                <h4 class="text-lg font-bold text-white mt-1 mb-2">OpenNebula & Virtual Machine Setup</h4>
+                <p class="text-xs text-zinc-400 leading-relaxed">Virtualization setup and VM configuration using OpenNebula and Oracle VirtualBox.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="py-20 px-6 max-w-5xl mx-auto scroll-mt-24">
+        <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-purple-500 mb-2">Milestones</h2>
+        <h3 class="text-3xl md:text-4xl font-extrabold mb-10">Achievements & Activities</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="glass-card p-6 flex gap-4 items-center">
+                <span class="text-3xl">🏆</span>
+                <div>
+                    <h4 class="font-bold text-white text-base">SIH Hackathon 2025</h4>
+                    <p class="text-xs text-zinc-400">Participated in Smart India Hackathon 2025.</p>
+                </div>
+            </div>
+            <div class="glass-card p-6 flex gap-4 items-center">
+                <span class="text-3xl">☁️</span>
+                <div>
+                    <h4 class="font-bold text-white text-base">AWS Cloud with AI Workshop</h4>
+                    <p class="text-xs text-zinc-400">Attended hands-on workshop in Jaipur (2025).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-6 max-w-5xl mx-auto scroll-mt-24">
+        <h2 class="text-xs font-bold uppercase tracking-[0.3em] text-purple-500 mb-2">Get In Touch</h2>
+        <h3 class="text-3xl md:text-4xl font-extrabold mb-10">Contact</h3>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass-card p-8 space-y-6">
+                <div>
+                    <p class="text-[10px] text-zinc-500 font-bold uppercase">Email</p>
+                    <a href="mailto:piyushkushwah048@gmail.com" class="text-base font-semibold text-purple-400 hover:underline">piyushkushwah048@gmail.com</a>
+                </div>
+                <div>
+                    <p class="text-[10px] text-zinc-500 font-bold uppercase">Phone / WhatsApp</p>
+                    <a href="https://wa.me/917302964055" target="_blank" class="text-base font-semibold text-zinc-200 hover:text-purple-400">+91 7302964055</a>
+                </div>
+                <div>
+                    <p class="text-[10px] text-zinc-500 font-bold uppercase">Location</p>
+                    <p class="text-base font-semibold text-zinc-200">Agra, Uttar Pradesh, India</p>
+                </div>
+                <div class="flex gap-4 pt-4 border-t border-white/10">
+                    <a href="https://github.com/mr-piyush07" target="_blank" class="text-xs font-bold text-purple-400 hover:underline">GitHub</a>
+                    <a href="https://linkedin.com/in/piyush-kushwah-369a87322" target="_blank" class="text-xs font-bold text-purple-400 hover:underline">LinkedIn</a>
+                </div>
+            </div>
+            <div class="glass-card p-8">
+                <form action="https://formspree.io/f/mdawdvvg" method="POST" class="space-y-4 text-xs">
+                    <input type="text" name="name" required placeholder="Your Name" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 outline-none focus:border-purple-500 text-white">
+                    <input type="email" name="email" required placeholder="Your Email" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 outline-none focus:border-purple-500 text-white">
+                    <textarea name="message" rows="4" required placeholder="Your Message" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 outline-none focus:border-purple-500 text-white resize-none"></textarea>
+                    <button type="submit" class="w-full btn-purple py-3 rounded-lg font-bold uppercase tracking-widest">Send Message</button>
                 </form>
             </div>
         </div>
-    </div>
-</section>
-<footer class="relative mt-20 pt-20 pb-10 px-8 border-t border-white/5 overflow-hidden">
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-purple-600/10 blur-[100px] rounded-full pointer-events-none"></div>
+    </section>
 
-    <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            
-            <div class="md:col-span-2 reveal">
-                <div class="text-2xl font-extrabold tracking-tighter mb-6">
-                    PIYUSH<span class="text-purple-500">.</span>
-                </div>
-                <p class="text-zinc-500 text-sm max-w-sm leading-relaxed mb-6">
-                    Building the future of IoT and Web Experiences. Currently based in 
-                    <span class="text-white border-b border-purple-500/30">Agra, Uttar Pradesh, India.</span>
-                </p>
-                <div class="flex items-center gap-3 text-zinc-400">
-                    <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span id="digital-clock" class="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-300">00:00:00 PM</span>
-                </div>
-            </div>
+    <!-- Footer -->
+    <footer class="py-8 text-center text-xs text-zinc-500 border-t border-white/5">
+        <p>© 2026 Piyush Kushwah. All Rights Reserved.</p>
+    </footer>
 
-            <div class="reveal">
-                <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-600 mb-6">Explore</h4>
-                <ul class="space-y-4 text-sm font-medium">
-                    <li><a href="#home" class="text-zinc-400 hover:text-white transition-colors">Home</a></li>
-                    <li><a href="#projects" class="text-zinc-400 hover:text-white transition-colors">Portfolio</a></li>
-                    <li><a href="#contact" class="text-zinc-400 hover:text-white transition-colors">Let's Connect</a></li>
-                </ul>
-            </div>
-
-            <div class="reveal">
-                <h4 class="text-[10px] font-bold uppercase tracking-[0.3em] text-zinc-600 mb-6">Connect</h4>
-                <div class="flex flex-wrap gap-4">
-                    <a href="https://linkedin.com/in/piyush-kushwah-369a87322" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#0077B5] hover:border-[#0077B5] group transition-all duration-300">
-                        <svg class="w-5 h-5 fill-current text-zinc-400 group-hover:text-white" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <a href="https://github.com/mr-piyush07" target="_blank" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white hover:border-white group transition-all duration-300">
-                        <svg class="w-5 h-5 fill-current text-zinc-400 group-hover:text-black" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.041-1.416-4.041-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-[10px] font-bold text-zinc-600 uppercase tracking-widest">
-                © 2026 Piyush Kushwah. All Rights Reserved.
-            </p>
-            <div class="flex items-center gap-2 text-zinc-600 text-[10px] font-bold uppercase tracking-widest">
-                <span>Designed with</span>
-                <span class="text-red-500 animate-pulse">❤️</span>
-                <span>for the Web</span>
-            </div>
-        </div>
-    </div>
-</footer>
-
-    <script>
-        // 1. Smooth Scrolling (Lenis)
-        const lenis = new Lenis();
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-        requestAnimationFrame(raf);
-
-        // 2. Sliding Reveal Effect Logic
-        const observerOptions = { threshold: 0.15 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // 3. Card Glow Logic
-        document.querySelectorAll('.glass-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                card.style.setProperty('--x', `${e.clientX - rect.left}px`);
-                card.style.setProperty('--y', `${e.clientY - rect.top}px`);
-            });
-        });
-
-        // 4. Smooth Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) { lenis.scrollTo(target, { offset: -80, duration: 2 }); }
-            });
-        });
-    </script>
+    <script src="script.js" defer></script>
 </body>
 </html>
